@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,10 +19,10 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'student_first_name' => fake()->word,
-            'student_last_name' => fake()->word,
-            'student_email' => fake()->word,
-            'student_address' => fake()->word,
+            'student_first_name' => fake()->firstname(),
+            'student_last_name' => fake()->lastname(),
+            'student_email' => "test@gmail.com",
+            'student_address' => fake()->streetAddress(),
         ];
     }
 }

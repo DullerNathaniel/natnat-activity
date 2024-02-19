@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class EnrollmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-   
+        //
     }
 
     /**
@@ -28,38 +28,38 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(Enrollment $enrollment)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(Enrollment $enrollment)
     {
-
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Enrollment $enrollment)
     {
- 
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(Enrollment $enrollment)
     {
-
+        //
     }
 }

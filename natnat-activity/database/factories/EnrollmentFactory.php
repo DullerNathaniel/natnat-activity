@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Course;
+use App\Models\Enrollment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Fake;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Enrollment>
  */
-class CourseFactory extends Factory
+class EnrollmentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,8 +19,7 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         return [
-            'course_name' => fake()->word,
-            'course_description' => fake()->word,
+            'enrollment_date' => fake()->time(),
         ];
     }
 }
