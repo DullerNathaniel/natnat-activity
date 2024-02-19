@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = Student::all();
-
-        return view (view: 'pages.inventory.index', data: ['items' => $items]);
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(Course $course)
     {
         //
     }
@@ -44,7 +42,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(Course $course)
     {
         //
     }
@@ -52,7 +50,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Course $course)
     {
         //
     }
@@ -60,7 +58,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(Course $course)
     {
         //
     }

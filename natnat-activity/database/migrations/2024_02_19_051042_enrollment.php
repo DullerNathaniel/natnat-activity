@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('enrollment', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id') -> constrained() -> cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 

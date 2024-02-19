@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('course_name');
             $table->string('course_description');
+            $table->timestamps();
         });
     }
 
