@@ -1,0 +1,22 @@
+Table students {
+  student_id integer [primary key]
+  student_first_name varchar
+  student_last_name varchar 
+  student_email varchar
+  student_address varchar
+}
+
+Table courses {
+  course_id integer [primary key]
+  course_name varchar
+  course_description varchar
+}
+
+Table enrollment {
+  enrollment_id integer [primary key]
+  enrollment_student foreign_key(varchar)
+}
+
+Ref: students.student_id > enrollment.enrollment_id
+
+Ref: enrollment.enrollment_student < courses.course_id
