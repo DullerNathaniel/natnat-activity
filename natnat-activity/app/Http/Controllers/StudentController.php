@@ -21,8 +21,51 @@ class StudentController extends Controller
      */
     public function create(Request $request)
     {
-        $students = new Student();
 
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $students = Student::create([
+            "student_first_name" => $request->student_first_name,
+            "student_last_name" => $request->student_last_name,
+            "student_email" => $request->student_email,
+            "student_address" => $request->student_address,
+
+        ]);
+
+        return response()->json([
+            "message" => "Student Created Sucessfully!", 
+            "data" => $students
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show()
+    {
+        $students = Student::all();
+
+        return response()->json($students);
+    }
+
+    public function showbyid($id)
+    {
+        $students = Student::find($id);
+
+        return response()->json($students);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $students = Student::find($id);
         $students->student_first_name = $request->input('student_first_name');
         $students->student_last_name = $request->input('student_last_name');
         $students->student_email = $request->input('student_email');
@@ -32,43 +75,28 @@ class StudentController extends Controller
         return response()->json($students);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function partialupdate(Request $request, $id)
     {
+        $students = Student::find($id);
+        $students->fill($request->only([
+            'student_first_name',
+            'student_last_name',
+            'student_email',
+            'student_address',
 
-    }
+        ]));
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Student $students)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Student $students)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Student $students)
-    {
-
+        $students->save();
+        return response()->json($students);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $students)
+    public function delete($id)
     {
-
+        $student = Student::find($id);
+        $student->delete();
+        return response()->json(['message' => 'Student Deleted Successfully!']);
     }
 }

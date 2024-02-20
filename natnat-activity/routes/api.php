@@ -20,4 +20,9 @@ Route::middleware('auth:api')->get('/user', function(Request $request){
     return $request->user();
 }); 
 
-Route::post('/student', [StudentController::class, 'create']);
+Route::post('/student', [StudentController::class, 'store']);
+Route::get('/student', [StudentController::class, 'show']);
+Route::get('/student/{id}', [StudentController::class, 'showbyid']);
+Route::put('/student/{id}', [StudentController::class, 'update']);
+Route::patch('/student/{id}', [StudentController::class, 'partialupdate']);
+Route::delete('/student/{id}', [StudentController::class, 'delete']);
