@@ -16,8 +16,8 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
         \App\Models\Student::factory(1) 
-            -> has(Enrollment::factory() -> count(4))
-            -> has(Course::factory() -> count(4))
+            -> has(Enrollment::factory() -> count(2))
+            -> has(Course::factory() -> count(2))
             -> create();
     }
 }
