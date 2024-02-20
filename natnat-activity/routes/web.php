@@ -15,4 +15,4 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get(uri: '/', action: [StudentController::class, 'index']) -> name (name: 'student.index'); 
+Route::get(uri: '/', action: [StudentController::class, 'index']) -> name (name: 'pages.index'); 
