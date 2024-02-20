@@ -15,4 +15,5 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get(uri: '/', action: [StudentController::class, 'index']) -> name (name: 'pages.index'); 
+Route::get(uri: '/', action: [StudentController::class, 'index']) -> name (name: 'pages.index');
+Route::get(uri: '/create', action: [StudentController::class, 'store']) -> name (name: 'pages.create');
