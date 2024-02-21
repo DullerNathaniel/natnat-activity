@@ -43,6 +43,7 @@ class StudentController extends Controller
             "message" => "Student Created Sucessfully!", 
             "data" => $students
         ]);
+
     }
 
     /**
@@ -97,8 +98,8 @@ class StudentController extends Controller
      */
     public function delete($id)
     {
-        $student = Student::find($id);
-        $student->delete();
-        return response()->json(['message' => 'Student Deleted Successfully!']);
+        $students = Student::findOrFail($id);
+        $students->delete();
+        return redirect()->route('index');
     }
 }

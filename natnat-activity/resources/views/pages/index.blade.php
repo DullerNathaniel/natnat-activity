@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
     <title>Test Academy</title>
     <!-- You can include additional meta tags, stylesheets, or scripts in the head section -->
     <style>
@@ -64,17 +65,94 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px;
+            border: none;
         }
 
         .createstudents:hover {
             background-color: #45a049;
         }
+
+        .update{
+            border-radius:50%;
+            padding: 10px;
+            background-color:#8fce00;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+
+        .update:hover {
+            background-color: #45a049;
+
+        }
+
+        .delete {
+            border-radius:50%;
+            padding: 10px;
+            background-color:#f44336;
+            border: none;
+            color: white;
+            cursor: pointer;
+
+        }
+
+        .delete:hover {
+            background-color:#990000;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            height: 15%;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .confirm-button, .cancel-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 10px;
+        }
+
+        .confirm-button {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .confirm-button:hover {
+            background-color: #990000;
+        }
+
+        .cancel-button:hover {
+            background-color: #bcbcbc;
+            color: #000;
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
+
         <h1>Welcome to Test Academy</h1>
         <p>A web application for updating and editing students!</p>
     </header>
@@ -93,11 +171,24 @@
                 <tbody>
                     @foreach($students as $students)
                         <tr>
-                            <th scope="row">{{$students ->id}}</th>
+                            <th scope="row">{{$students->id}}</th>
                             <td>{{$students -> student_first_name}}</td>
                             <td>{{$students -> student_last_name}}</td>
                             <td>{{$students -> student_email}}</td>
                             <td>{{$students -> student_address}}</td>
+                            <td><a><button class="update"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></a></td>
+                            <td><a><button class="delete" onclick="openModal()"><i class="fa-solid fa-trash fa-lg"></i></button></a></td>
+
+                            <div id="confirmationModal" class="modal">
+                                <div class="modal-content">
+                                    <p>Are you sure you want to delete this student's information?</p>
+                                        <form action="/delete/{{$students->id}}" method="POST">
+                                            @csrf
+                                            <button class="confirm-button" onclick="deleteStudent()">Yes, Delete</button>    
+                                            <button class="cancel-button" onclick="closeModal()">Cancel</button>
+                                        </form>    
+                                </div>
+                            </div>
                         </tr>
                     @endforeach            
             </tbody>
@@ -113,6 +204,21 @@
     <footer>
         <p>&copy; 2024 Test Academy. Ayahtek Activity.</p>
     </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById("confirmationModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("confirmationModal").style.display = "none";
+        }
+
+        function deleteStudent() {
+
+            closeModal(); 
+        }
+    </script>
 
 </body>
 </html>
