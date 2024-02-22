@@ -17,5 +17,7 @@ use App\Http\Controllers\StudentController;
 
 Route::get(uri: '/', action: [StudentController::class, 'index']) -> name (name: 'index');
 Route::get(uri: '/student/create', action: [StudentController::class, 'create']) -> name (name: 'students.create');
-Route::post(uri: '/', action: [StudentController::class, 'store']) -> name (name: 'students.store');
+Route::post(uri: '/student/create', action: [StudentController::class, 'store']) -> name (name: 'students.store');
+Route::get(uri: '/student/{id}', action: [StudentController::class, 'update']) -> name (name: 'students.update');
+Route::post(uri: '/student/partialUpdate/{id}', action: [StudentController::class, 'partialUpdate']) -> name (name: 'students.partialUpdate');
 Route::post('/delete/{id}', [StudentController::class, 'delete']) -> name (name:'students.delete');

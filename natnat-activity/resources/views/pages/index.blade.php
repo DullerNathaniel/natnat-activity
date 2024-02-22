@@ -169,28 +169,28 @@
                     <th scope="col">Address</th>
                 </tr>
                 <tbody>
-                    @foreach($students as $students)
-                        <tr>
-                            <th scope="row">{{$students->id}}</th>
-                            <td>{{$students -> student_first_name}}</td>
-                            <td>{{$students -> student_last_name}}</td>
-                            <td>{{$students -> student_email}}</td>
-                            <td>{{$students -> student_address}}</td>
-                            <td><a><button class="update"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></a></td>
-                            <td><a><button class="delete" onclick="openModal()"><i class="fa-solid fa-trash fa-lg"></i></button></a></td>
+                        @foreach($students as $students)
+                            <tr>
+                                <th scope="row">{{$students->id}}</th>
+                                <td>{{$students -> student_first_name}}</td>
+                                <td>{{$students -> student_last_name}}</td>
+                                <td>{{$students -> student_email}}</td>
+                                <td>{{$students -> student_address}}</td>
+                                <td><a href="/student/{{$students->id}}"><button class="update"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></a></td>
+                                <td><a><button class="delete" onclick="openModal()"><i class="fa-solid fa-trash fa-lg"></i></button></a></td>
 
-                            <div id="confirmationModal" class="modal">
-                                <div class="modal-content">
-                                    <p>Are you sure you want to delete this student's information?</p>
-                                        <form action="/delete/{{$students->id}}" method="POST">
-                                            @csrf
-                                            <button class="confirm-button" onclick="deleteStudent()">Yes, Delete</button>    
-                                        </form>   
-                                        <button class="cancel-button" onclick="closeModal()">Cancel</button> 
+                                <div id="confirmationModal" class="modal">
+                                    <div class="modal-content">
+                                        <p>Are you sure you want to delete this student's information?</p>
+                                            <form action="/delete/{{$students->id}}" method="POST">
+                                                @csrf
+                                                <button class="confirm-button" onclick="deleteStudent()">Yes, Delete</button>    
+                                            </form>   
+                                            <button class="cancel-button" onclick="closeModal()">Cancel</button> 
+                                    </div>
                                 </div>
-                            </div>
-                        </tr>
-                    @endforeach            
+                            </tr>
+                        @endforeach            
                 </tbody>
             </thead>
         </table>

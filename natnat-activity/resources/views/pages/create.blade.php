@@ -94,7 +94,7 @@
         }
 
         .returnbutton {
-            background-color: #4CAF50;
+            background-color: #de3549;
             color: #fff;
             padding: 10px 20px;
             font-size: 16px;
@@ -106,7 +106,7 @@
         }
 
         .returnbutton:hover {
-            background-color: #45a049;
+            background-color: #962d26;
 
         }
 
@@ -142,17 +142,21 @@
         }
 
         .confirm-button {
-            background-color: #f44336;
+            background-color: #0bbd4c;
+            color: #fff;
+        }
+
+        .cancel-button {
+            background-color: #de3549;
             color: #fff;
         }
 
         .confirm-button:hover {
-            background-color: #990000;
+            background-color: #118039;
         }
 
         .cancel-button:hover {
-            background-color: #bcbcbc;
-            color: #000;
+            background-color: #962d26;
         }
 
     </style>

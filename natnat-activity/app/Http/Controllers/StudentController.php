@@ -64,31 +64,23 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $students = Student::find($id);
-        $students->student_first_name = $request->input('student_first_name');
-        $students->student_last_name = $request->input('student_last_name');
-        $students->student_email = $request->input('student_email');
-        $students->student_address = $request->input('student_address');
-
-        $students->save();
-        return response()->json($students);
+        return view( view:'pages.edit', data:['students' => $students]);
     }
 
-    public function partialupdate(Request $request, $id)
+    public function partialUpdate(Request $request, $id)
     {
-        $students = Student::find($id);
-        $students->fill($request->only([
-            'student_first_name',
-            'student_last_name',
-            'student_email',
-            'student_address',
+        $students = Student::findOrFail($id);
 
-        ]));
+        $students ->update([
+        'student_email' => $request->student_email,
+        'student_address' => $request->student_address,
 
-        $students->save();
-        return response()->json($students);
+        ]);
+
+        return redirect()->route('index');
     }
 
     /**
