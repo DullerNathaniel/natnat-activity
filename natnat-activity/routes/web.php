@@ -20,4 +20,5 @@ Route::get(uri: '/student/create', action: [StudentController::class, 'create'])
 Route::post(uri: '/student/create', action: [StudentController::class, 'store']) -> name (name: 'students.store');
 Route::get(uri: '/student/{id}', action: [StudentController::class, 'update']) -> name (name: 'students.update');
 Route::post(uri: '/student/partialUpdate/{id}', action: [StudentController::class, 'partialUpdate']) -> name (name: 'students.partialUpdate');
+Route::get(uri: '/student/view/{id}', action: [StudentController::class, 'viewStudent']) -> name (name: 'students.viewStudent');
 Route::post('/delete/{id}', [StudentController::class, 'delete']) -> name (name:'students.delete');

@@ -101,6 +101,19 @@
             background-color:#990000;
         }
 
+        .view {
+            border-radius:50%;
+            padding: 10px;
+            background-color:#edd000;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .view:hover {
+            background-color:#c1ab10;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -177,7 +190,8 @@
                                 <td>{{$students -> student_email}}</td>
                                 <td>{{$students -> student_address}}</td>
                                 <td><a href="/student/{{$students->id}}"><button class="update"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></a></td>
-                                <td><a><button class="delete" onclick="openModal()"><i class="fa-solid fa-trash fa-lg"></i></button></a></td>
+                                <td><button class="delete" onclick="openModal()"><i class="fa-solid fa-trash fa-lg"></i></button></td>
+                                <td><a href="/student/view/{{$students->id}}"><button class="view"><i class="fa-solid fa-street-view fa-lg"></i></button></a></td>
 
                                 <div id="confirmationModal" class="modal">
                                     <div class="modal-content">

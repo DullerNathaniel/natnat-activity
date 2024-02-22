@@ -21,7 +21,7 @@ class StudentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
     {
         return view( view: 'pages.create');
     }
@@ -45,23 +45,6 @@ class StudentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        $students = Student::all();
-
-        return response()->json($students);
-    }
-
-    public function showbyid($id)
-    {
-        $students = Student::find($id);
-
-        return response()->json($students);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update($id)
@@ -81,6 +64,13 @@ class StudentController extends Controller
         ]);
 
         return redirect()->route('index');
+    }
+
+    public function viewStudent()
+    {
+        $students = Student::all();
+
+        return view( view: 'pages.show', data:['students' => $students]);  
     }
 
     /**
