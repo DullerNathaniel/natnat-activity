@@ -185,17 +185,17 @@
                                         <form action="/delete/{{$students->id}}" method="POST">
                                             @csrf
                                             <button class="confirm-button" onclick="deleteStudent()">Yes, Delete</button>    
-                                            <button class="cancel-button" onclick="closeModal()">Cancel</button>
-                                        </form>    
+                                        </form>   
+                                        <button class="cancel-button" onclick="closeModal()">Cancel</button> 
                                 </div>
                             </div>
                         </tr>
                     @endforeach            
-            </tbody>
+                </tbody>
             </thead>
         </table>
 
-        <a href="{{ route('pages.create') }}">
+        <a href="/student/create">
             <button class="createstudents">Create New Student</button>
         </a>
     </div>
@@ -216,6 +216,7 @@
 
         function deleteStudent() {
 
+            alert("Student information has successfully been deleted!");
             closeModal(); 
         }
     </script>

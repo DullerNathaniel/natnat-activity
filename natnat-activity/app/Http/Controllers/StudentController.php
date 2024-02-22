@@ -23,7 +23,7 @@ class StudentController extends Controller
      */
     public function create(Request $request)
     {
-
+        return view( view: 'pages.create');
     }
 
     /**
@@ -31,18 +31,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+
         $students = Student::create([
-            "student_first_name" => $request->student_first_name,
-            "student_last_name" => $request->student_last_name,
-            "student_email" => $request->student_email,
-            "student_address" => $request->student_address,
+            'student_first_name' => $request->student_first_name,
+            'student_last_name' => $request->student_last_name,
+            'student_email' => $request->student_email,
+            'student_address' => $request->student_address,
 
         ]);
 
-        return response()->json([
-            "message" => "Student Created Sucessfully!", 
-            "data" => $students
-        ]);
+        return redirect()->route('index');
 
     }
 
