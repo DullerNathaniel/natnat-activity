@@ -18,6 +18,34 @@ class StudentController extends Controller
         return view( view: 'pages.index', data:['students' => $students]);
     }
 
+    public function showbyid($id)
+    {
+        $students = Student::find($id);
+        return response()->json($students);
+
+    }    
+
+    public function show()
+    {
+        $students = Student::all();
+        return response()->json($students);
+
+    }    
+
+    public function updateStudent(Request $request, $id)
+    {
+        $students = Student::find($id);
+        $students->student_first_name = $request->input('student_first_name');
+        $students->student_last_name = $request->input('student_last_name');
+        $students->student_email = $request->input('student_email');
+        $students->student_address = $request->input('student_address');
+
+        $students->save();
+        return response()->json($students);
+
+    }    
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -58,6 +86,8 @@ class StudentController extends Controller
         $students = Student::findOrFail($id);
 
         $students ->update([
+        'student_first_name' => $request->student_first_name,
+        'student_last_name' => $request->student_last_name,
         'student_email' => $request->student_email,
         'student_address' => $request->student_address,
 
@@ -66,11 +96,11 @@ class StudentController extends Controller
         return redirect()->route('index');
     }
 
-    public function viewStudent()
+    public function viewStudent($id)
     {
-        $students = Student::all();
+        $student = Student::findOrFail($id);
 
-        return view( view: 'pages.show', data:['students' => $students]);  
+        return view( view: 'pages.show', data:['student' => $student]);  
     }
 
     /**

@@ -77,23 +77,23 @@
         <p>Student Information Section.</p>
     </header>
     <table class="table">
-        @foreach($students as $students)
+        @if($student)
             <tr>
-                <th>Student ID: </th><td>{{$students -> id}}</td>
+                <th>Student ID: </th><td>{{$student -> id}}</td>
             </tr>
             <tr>
-                <th>Student First Name: </th><td>{{$students -> student_first_name}}</td>
+                <th>Student First Name: </th><td>{{$student -> student_first_name}}</td>
             </tr>
             <tr>
-                <th>Student Last Name: </th><td>{{$students -> student_last_name}}</td>
+                <th>Student Last Name: </th><td>{{$student -> student_last_name}}</td>
             </tr>
             <tr>
-                <th>Student Email: </th><td>{{$students -> student_email}}</td>
+                <th>Student Email: </th><td>{{$student -> student_email}}</td>
             </tr>
             <tr>
-                <th>Student Address: </th><td>{{$students -> student_address}}</td>
+                <th>Student Address: </th><td>{{$student -> student_address}}</td>
             </tr>
-        @endforeach
+        @endif
             <tr>
                 <td colspan="2" style="text-align: center;"><a href="/" type="button" class="returnbutton">Return</a></td>
             </tr>

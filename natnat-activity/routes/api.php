@@ -23,6 +23,6 @@ Route::middleware('auth:api')->get('/user', function(Request $request){
 Route::post('/student', [StudentController::class, 'store']);
 Route::get('/student', [StudentController::class, 'show']);
 Route::get('/student/{id}', [StudentController::class, 'showbyid']);
-Route::put('/student/{id}', [StudentController::class, 'update']);
-Route::patch('/student/{id}', [StudentController::class, 'partialupdate']);
+Route::put('/student/{id}', [StudentController::class, 'updateStudent']);
+Route::patch('/student/partialUpdate/{id}', [StudentController::class, 'partialUpdate']);
 Route::delete('/student/{id}', [StudentController::class, 'delete']);

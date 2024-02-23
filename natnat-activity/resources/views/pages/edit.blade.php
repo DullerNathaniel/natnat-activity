@@ -167,7 +167,7 @@
     <header>
 
         <h1>Welcome to Test Academy</h1>
-        <p>Please fill in the required information to create a new student id.</p>
+        <p>Please fill in the required information to update a student id.</p>
     </header>
 
     <div class="createtable">
@@ -176,11 +176,11 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Student First Name:</label>
-                        <input class="form-control" id="disabledInput" type="text" placeholder="{{$students -> student_first_name}}" disabled>
+                        <input type="text" class="form-control" name="student_first_name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Student Last Name:</label>
-                        <input class="form-control" id="disabledInput" type="text" placeholder="{{$students -> student_last_name}}" disabled>
+                        <input type="text" class="form-control" name="student_last_name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label"> Student Email Address:</label>
@@ -203,6 +203,7 @@
                         <button class="btn btn-primary" onclick="openModal()">Submit</button>
                         <a href="/" type="button" class="returnbutton">Return</a>
                     </div>
+            
         </table>
     </div>
 
